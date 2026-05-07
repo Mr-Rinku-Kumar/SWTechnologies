@@ -1,0 +1,129 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>SW Technologies | Modern Web Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background-color: #fefefe; color: #1a1e2b; line-height: 1.5; scroll-behavior: smooth; }
+    :root { --primary: #0f2b3d; --primary-dark: #091e2c; --accent: #4f46e5; --accent-light: #6366f1; --gray-bg: #f8fafc; --text-dark: #0f172a; --text-muted: #334155; --white: #ffffff; --shadow-sm: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.02); --shadow-md: 0 20px 25px -12px rgba(0,0,0,0.08); }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+    section { padding: 80px 0; }
+    h2 { font-size: 2rem; margin-bottom: 2rem; letter-spacing: -0.02em; font-weight: 700; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; border-radius: 40px; font-weight: 600; transition: all 0.25s ease; text-decoration: none; font-size: 1rem; cursor: pointer; border: none; }
+    .btn-primary { background: var(--accent); color: white; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+    .btn-primary:hover { background: var(--accent-light); transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .btn-outline { background: transparent; border: 1.5px solid var(--accent); color: var(--accent); }
+    .btn-outline:hover { background: var(--accent); color: white; transform: translateY(-3px); }
+    .navbar { background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; max-width: 1400px; margin: 0 auto; }
+    .logo a { font-size: 1.7rem; font-weight: 800; text-decoration: none; background: linear-gradient(135deg, #0f2b3d, #4f46e5); background-clip: text; -webkit-background-clip: text; color: transparent; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links li a { text-decoration: none; font-weight: 500; color: var(--text-dark); transition: color 0.2s; }
+    .nav-links li a:hover, .nav-links li a.active { color: var(--accent); }
+    .hamburger { display: none; font-size: 1.8rem; cursor: pointer; }
+    @media (max-width: 768px) { .nav-links { position: fixed; top: 70px; left: -100%; width: 100%; height: calc(100vh - 70px); background: white; flex-direction: column; align-items: center; padding-top: 2rem; gap: 2rem; transition: left 0.3s ease; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); } .nav-links.active { left: 0; } .hamburger { display: block; } .nav-container { padding: 0.8rem 1.5rem; } .container { padding: 0 24px; } section { padding: 60px 0; } }
+    .hero { background: linear-gradient(135deg, #f0f4fe 0%, #ffffff 100%); padding: 100px 0; }
+    .hero-content { max-width: 700px; }
+    .hero h1 { font-size: 3.2rem; margin-bottom: 1rem; }
+    .hero p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 2rem; }
+    .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; margin-top: 1rem; }
+    .service-card { background: white; border-radius: 24px; padding: 1.8rem; box-shadow: var(--shadow-sm); transition: all 0.25s; text-align: center; border: 1px solid #eef2ff; }
+    .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+    .service-icon { font-size: 2.8rem; color: var(--accent); margin-bottom: 1rem; }
+    .service-card h3 { margin-bottom: 0.75rem; }
+    .service-card p { color: var(--text-muted); margin-bottom: 1.25rem; }
+    .strengths-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; }
+    .strength-card { background: white; border-radius: 24px; padding: 1.8rem; text-align: center; box-shadow: var(--shadow-sm); }
+    .strength-card i { font-size: 2rem; color: var(--accent); margin-bottom: 1rem; }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+    .testimonial { background: var(--gray-bg); padding: 1.8rem; border-radius: 24px; border-left: 5px solid var(--accent); }
+    .testimonial p { font-style: italic; margin-bottom: 1rem; }
+    .client-name { font-weight: 700; }
+    footer { background: var(--primary-dark); color: #cbd5e1; padding: 48px 0 24px; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+    .footer-col h4 { color: white; margin-bottom: 1rem; }
+    .footer-col a { color: #cbd5e1; text-decoration: none; display: block; margin-bottom: 0.5rem; transition: color 0.2s; }
+    .footer-col a:hover { color: white; }
+    .social-icons a { display: inline-block; margin-right: 1rem; font-size: 1.3rem; color: #cbd5e1; }
+    .copyright { text-align: center; padding-top: 2rem; border-top: 1px solid #1e2a3a; font-size: 0.85rem; }
+    @media (max-width: 480px) { .hero h1 { font-size: 2.2rem; } .btn-group .btn { padding: 10px 20px; } }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo"><a href="index.html">SW<span style="color:#4f46e5;">Tech</span></a></div>
+      <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Fast. Modern. <span style="color:#4f46e5;">Responsive.</span> Web Solutions</h1>
+          <p>We help startups, entrepreneurs & businesses build powerful online presence with cutting-edge web development.</p>
+          <div class="btn-group">
+            <a href="contact.html" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Get a Free Quote</a>
+            <a href="services.html" class="btn btn-outline"><i class="fas fa-cog"></i> View Our Services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <h2>Services We Deliver</h2>
+        <div class="cards-grid">
+          <div class="service-card"><div class="service-icon"><i class="fas fa-paint-brush"></i></div><h3>Web Design</h3><p>Modern UI/UX, mobile-first designs that convert visitors into customers.</p><a href="services.html" class="btn btn-outline small-btn" style="padding:8px 20px;">Learn More</a></div>
+          <div class="service-card"><div class="service-icon"><i class="fas fa-code"></i></div><h3>Web Development</h3><p>Fast, scalable web apps with latest frameworks and clean code.</p><a href="services.html" class="btn btn-outline small-btn" style="padding:8px 20px;">Learn More</a></div>
+          <div class="service-card"><div class="service-icon"><i class="fas fa-shopping-cart"></i></div><h3>E-Commerce</h3><p>Secure, conversion-optimized online stores that drive sales.</p><a href="services.html" class="btn btn-outline small-btn" style="padding:8px 20px;">Learn More</a></div>
+          <div class="service-card"><div class="service-icon"><i class="fas fa-chart-line"></i></div><h3>SEO & Marketing</h3><p>Rank higher, attract organic traffic with data-driven SEO.</p><a href="services.html" class="btn btn-outline small-btn" style="padding:8px 20px;">Learn More</a></div>
+        </div>
+      </div>
+    </section>
+    <section style="background: var(--gray-bg);">
+      <div class="container">
+        <h2>Why Choose Us</h2>
+        <div class="strengths-grid">
+          <div class="strength-card"><i class="fas fa-rocket"></i><h3>Lightning Fast</h3><p>Optimized performance and fast loading times.</p></div>
+          <div class="strength-card"><i class="fas fa-mobile-alt"></i><h3>Fully Responsive</h3><p>Perfect on desktop, tablet, and mobile.</p></div>
+          <div class="strength-card"><i class="fas fa-headset"></i><h3>24/7 Support</h3><p>Dedicated support and maintenance.</p></div>
+          <div class="strength-card"><i class="fas fa-shield-alt"></i><h3>Secure & Scalable</h3><p>Enterprise-grade security and future-proof code.</p></div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <h2>What Clients Say</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial"><p>"SW Tech built our e-commerce store from scratch. Sales increased by 40% in 3 months. Highly recommend!"</p><div class="client-name">— Sarah Johnson, Founder of UrbanStore</div></div>
+          <div class="testimonial"><p>"Professional team, delivered ahead of schedule. Our new website is sleek, fast, and exactly what we needed."</p><div class="client-name">— Michael Chen, Startup CEO</div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col"><h4>SW Technologies</h4><p>Empowering businesses with modern web solutions since 2022.</p></div>
+        <div class="footer-col"><h4>Quick Links</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="contact.html">Contact</a></div>
+        <div class="footer-col"><h4>Contact</h4><a href="#"><i class="fas fa-map-marker-alt"></i> 123 Digital Ave, San Francisco, CA</a><a href="#"><i class="fas fa-phone"></i> +1 (555) 678-1234</a><a href="#"><i class="fas fa-envelope"></i> hello@swtechnologies.com</a></div>
+        <div class="footer-col"><h4>Follow Us</h4><div class="social-icons"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a><a href="#"><i class="fab fa-instagram"></i></a></div></div>
+      </div>
+      <div class="copyright"><p>© 2025 SW Technologies. All rights reserved. Crafted with ❤️ for the web.</p></div>
+    </div>
+  </footer>
+  <script>const hamburger=document.getElementById('hamburger');const navLinks=document.getElementById('navLinks');hamburger.addEventListener('click',()=>{navLinks.classList.toggle('active');});document.querySelectorAll('.nav-links a').forEach(link=>{link.addEventListener('click',()=>{navLinks.classList.remove('active');})});</script>
+</body>
+</html>

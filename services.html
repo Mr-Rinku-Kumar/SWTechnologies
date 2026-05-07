@@ -1,0 +1,47 @@
+<!-- services.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SW Technologies | Our Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #fefefe; }
+    :root { --accent: #4f46e5; --primary-dark: #091e2c; --gray-bg: #f8fafc; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+    .banner { background: linear-gradient(135deg, #0f2b3d, #1e1b4b); color: white; padding: 80px 0; text-align: center; }
+    .banner h1 { font-size: 3rem; margin-bottom: 1rem; }
+    section { padding: 80px 0; }
+    h2 { font-size: 2rem; margin-bottom: 2rem; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+    .service-card { background: white; border-radius: 28px; padding: 2rem; box-shadow: 0 20px 30px -12px rgba(0,0,0,0.08); transition: all 0.3s; text-align: center; }
+    .service-card:hover { transform: translateY(-10px); }
+    .service-icon { font-size: 3rem; color: var(--accent); margin-bottom: 1.2rem; }
+    .service-card h3 { margin-bottom: 1rem; }
+    .service-card p { color: #334155; margin: 1rem 0; }
+    .btn-sm { padding: 10px 24px; border-radius: 40px; background: var(--accent); color: white; text-decoration: none; display: inline-block; font-weight: 600; transition: 0.2s; }
+    .btn-sm:hover { background: #4338ca; }
+    .navbar { background: white; position: sticky; top: 0; z-index: 1000; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
+    .logo a { font-size: 1.7rem; font-weight: 800; text-decoration: none; background: linear-gradient(135deg, #0f2b3d, #4f46e5); background-clip: text; -webkit-background-clip: text; color: transparent; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { text-decoration: none; font-weight: 500; color: #0f172a; }
+    .nav-links a.active, .nav-links a:hover { color: var(--accent); }
+    .hamburger { display: none; font-size: 1.8rem; cursor: pointer; }
+    footer { background: var(--primary-dark); color: #cbd5e1; padding: 48px 0 24px; margin-top: 2rem; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 2rem; }
+    .copyright { text-align: center; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #1e2a3a; }
+    @media (max-width: 768px) { .nav-links { position: fixed; top: 70px; left: -100%; width: 100%; background: white; flex-direction: column; align-items: center; padding-top: 2rem; transition: left 0.3s; } .nav-links.active { left: 0; } .hamburger { display: block; } .container { padding: 0 24px; } .banner h1 { font-size: 2rem; } }
+  </style>
+</head>
+<body>
+  <nav class="navbar"><div class="nav-container"><div class="logo"><a href="index.html">SW<span style="color:#4f46e5;">Tech</span></a></div><div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div><ul class="nav-links" id="navLinks"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html" class="active">Services</a></li><li><a href="contact.html">Contact</a></li></ul></div></nav>
+  <div class="banner"><div class="container"><h1>Our Services</h1><p>Tailored digital solutions that drive real results</p></div></div>
+  <section><div class="container"><div class="services-grid"><div class="service-card"><div class="service-icon"><i class="fas fa-paint-brush"></i></div><h3>Website Design</h3><p>Custom designs that reflect your brand identity and captivate users. Pixel-perfect, modern interfaces.</p><a href="contact.html" class="btn-sm">Request a Quote →</a></div><div class="service-card"><div class="service-icon"><i class="fas fa-code"></i></div><h3>Website Development</h3><p>High-performance frontend & backend development. Scalable, secure, and maintainable code.</p><a href="contact.html" class="btn-sm">Request a Quote →</a></div><div class="service-card"><div class="service-icon"><i class="fas fa-store"></i></div><h3>E-Commerce Development</h3><p>Full-featured online stores with secure payment gateways, inventory management, and analytics.</p><a href="contact.html" class="btn-sm">Request a Quote →</a></div><div class="service-card"><div class="service-icon"><i class="fas fa-chart-simple"></i></div><h3>SEO & Digital Marketing</h3><p>Data-driven SEO strategies, content marketing, and paid ads to boost your visibility.</p><a href="contact.html" class="btn-sm">Request a Quote →</a></div></div></div></section>
+  <footer><div class="container"><div class="footer-grid"><div class="footer-col"><h4>SW Tech</h4><p>Your digital growth partner.</p></div><div class="footer-col"><h4>Explore</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="contact.html">Contact</a></div><div class="footer-col"><i class="fas fa-map-marker-alt"></i> 123 Innovation Hub, CA<br><i class="fas fa-envelope"></i> hello@swtechnologies.com</div></div><div class="copyright">© 2025 SW Technologies. All rights reserved.</div></div></footer>
+  <script>const hamburger=document.getElementById('hamburger');const navLinks=document.getElementById('navLinks');hamburger.addEventListener('click',()=>{navLinks.classList.toggle('active');});document.querySelectorAll('.nav-links a').forEach(link=>{link.addEventListener('click',()=>{navLinks.classList.remove('active');})});</script>
+</body>
+</html>

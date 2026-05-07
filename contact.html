@@ -1,0 +1,79 @@
+<!-- contact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SW Technologies | Contact Us</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #fefefe; }
+    :root { --accent: #4f46e5; --primary-dark: #091e2c; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+    .contact-section { padding: 80px 0; }
+    h2 { font-size: 2rem; margin-bottom: 2rem; }
+    .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+    .form-group { margin-bottom: 1.5rem; }
+    input, textarea, select { width: 100%; padding: 14px 18px; border: 1px solid #e2e8f0; border-radius: 16px; font-family: inherit; font-size: 1rem; transition: 0.2s; }
+    input:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(79,70,229,0.1); }
+    button[type="submit"] { background: var(--accent); color: white; border: none; padding: 14px 28px; border-radius: 40px; font-weight: 600; cursor: pointer; width: 100%; font-size: 1rem; }
+    .error { color: #e53e3e; font-size: 0.8rem; margin-top: 5px; display: block; }
+    .contact-details { background: #f8fafc; padding: 2rem; border-radius: 32px; }
+    .contact-details p { margin: 1rem 0; display: flex; align-items: center; gap: 12px; }
+    .map { margin-top: 3rem; border-radius: 28px; overflow: hidden; height: 300px; }
+    iframe { width: 100%; height: 100%; border: 0; }
+    .navbar { background: white; position: sticky; top: 0; z-index: 1000; }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
+    .logo a { font-size: 1.7rem; font-weight: 800; text-decoration: none; background: linear-gradient(135deg, #0f2b3d, #4f46e5); background-clip: text; -webkit-background-clip: text; color: transparent; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { text-decoration: none; font-weight: 500; color: #0f172a; }
+    .nav-links a.active, .nav-links a:hover { color: var(--accent); }
+    .hamburger { display: none; font-size: 1.8rem; cursor: pointer; }
+    footer { background: var(--primary-dark); color: #cbd5e1; padding: 48px 0 24px; margin-top: 2rem; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 2rem; }
+    .copyright { text-align: center; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #1e2a3a; }
+    @media (max-width: 768px) { .contact-wrapper { grid-template-columns: 1fr; } .nav-links { position: fixed; top: 70px; left: -100%; width: 100%; background: white; flex-direction: column; align-items: center; transition: left 0.3s; } .nav-links.active { left: 0; } .hamburger { display: block; } .container { padding: 0 24px; } }
+  </style>
+</head>
+<body>
+  <nav class="navbar"><div class="nav-container"><div class="logo"><a href="index.html">SW<span style="color:#4f46e5;">Tech</span></a></div><div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div><ul class="nav-links" id="navLinks"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html" class="active">Contact</a></li></ul></div></nav>
+  <div class="contact-section"><div class="container"><h2>Let's Talk</h2><div class="contact-wrapper"><div><form id="contactForm"><div class="form-group"><input type="text" id="name" placeholder="Full Name"><span class="error" id="nameError"></span></div><div class="form-group"><input type="email" id="email" placeholder="Email Address"><span class="error" id="emailError"></span></div><div class="form-group"><input type="tel" id="phone" placeholder="Phone Number"><span class="error" id="phoneError"></span></div><div class="form-group"><input type="text" id="subject" placeholder="Subject"><span class="error" id="subjectError"></span></div><div class="form-group"><textarea rows="5" id="message" placeholder="Your Message..."></textarea><span class="error" id="messageError"></span></div><button type="submit">Send Message <i class="fas fa-paper-plane"></i></button></form><p id="formSuccess" style="color:green; margin-top:1rem; display:none;">✔ Message sent! We'll get back soon.</p></div><div class="contact-details"><h3>Get in touch</h3><p><i class="fas fa-map-marker-alt fa-lg"></i> 123 Digital Avenue, San Francisco, CA 94103</p><p><i class="fas fa-phone-alt"></i> +1 (555) 678-1234</p><p><i class="fas fa-envelope"></i> hello@swtechnologies.com</p><p><i class="fas fa-clock"></i> Mon-Fri: 9am - 6pm (PST)</p></div></div><div class="map"><iframe src="https://maps.google.com/maps?q=San%20Francisco%2C%20CA&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen></iframe></div></div></div>
+  <footer><div class="container"><div class="footer-grid"><div class="footer-col"><h4>SW Tech</h4><p>Ready to elevate your brand?</p></div><div class="footer-col"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a></div><div class="footer-col"><i class="fas fa-envelope"></i> hello@swtechnologies.com</div></div><div class="copyright">© 2025 SW Technologies. Innovating the web.</div></div></footer>
+  <script>
+    const form = document.getElementById('contactForm');
+    const nameInp = document.getElementById('name');
+    const emailInp = document.getElementById('email');
+    const phoneInp = document.getElementById('phone');
+    const subjectInp = document.getElementById('subject');
+    const messageInp = document.getElementById('message');
+    const nameErr = document.getElementById('nameError');
+    const emailErr = document.getElementById('emailError');
+    const phoneErr = document.getElementById('phoneError');
+    const subjectErr = document.getElementById('subjectError');
+    const messageErr = document.getElementById('messageError');
+    const successMsg = document.getElementById('formSuccess');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let isValid = true;
+      nameErr.innerText = ''; emailErr.innerText = ''; phoneErr.innerText = ''; subjectErr.innerText = ''; messageErr.innerText = ''; successMsg.style.display = 'none';
+
+      if (!nameInp.value.trim()) { nameErr.innerText = 'Name is required'; isValid = false; }
+      const emailVal = emailInp.value.trim();
+      const emailPattern = /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/;
+      if (!emailVal) { emailErr.innerText = 'Email required'; isValid = false; } else if (!emailPattern.test(emailVal)) { emailErr.innerText = 'Enter valid email'; isValid = false; }
+      const phoneVal = phoneInp.value.trim();
+      if (!phoneVal) { phoneErr.innerText = 'Phone number required'; isValid = false; } else if (!/^[\d+\s\-\(\)]{7,}$/.test(phoneVal)) { phoneErr.innerText = 'Enter valid phone number'; isValid = false; }
+      if (!subjectInp.value.trim()) { subjectErr.innerText = 'Subject required'; isValid = false; }
+      if (!messageInp.value.trim()) { messageErr.innerText = 'Message cannot be empty'; isValid = false; }
+
+      if (isValid) { successMsg.style.display = 'block'; form.reset(); setTimeout(() => { successMsg.style.display = 'none'; }, 4000); }
+    });
+    const hamburger = document.getElementById('hamburger'); const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
+    document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('active')));
+  </script>
+</body>
+</html>
