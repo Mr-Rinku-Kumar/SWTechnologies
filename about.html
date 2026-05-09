@@ -2,46 +2,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SW Technologies | About Us</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background-color: #fefefe; color: #1a1e2b; line-height: 1.5; }
-    :root { --primary: #0f2b3d; --primary-dark: #091e2c; --accent: #4f46e5; --accent-light: #6366f1; --gray-bg: #f8fafc; --text-dark: #0f172a; --text-muted: #334155; }
-    .container { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
-    section { padding: 80px 0; }
-    h2 { font-size: 2rem; margin-bottom: 2rem; font-weight: 700; }
-    .navbar { background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
-    .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; max-width: 1400px; margin: 0 auto; }
-    .logo a { font-size: 1.7rem; font-weight: 800; text-decoration: none; background: linear-gradient(135deg, #0f2b3d, #4f46e5); background-clip: text; -webkit-background-clip: text; color: transparent; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links li a { text-decoration: none; font-weight: 500; color: var(--text-dark); }
-    .nav-links li a:hover, .nav-links li a.active { color: var(--accent); }
-    .hamburger { display: none; font-size: 1.8rem; cursor: pointer; }
-    @media (max-width: 768px) { .nav-links { position: fixed; top: 70px; left: -100%; width: 100%; height: calc(100vh - 70px); background: white; flex-direction: column; align-items: center; padding-top: 2rem; transition: left 0.3s; } .nav-links.active { left: 0; } .hamburger { display: block; } .container { padding: 0 24px; } section { padding: 60px 0; } }
-    .story-box { background: var(--gray-bg); padding: 2rem; border-radius: 28px; margin-bottom: 2rem; }
-    .mission-vision { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 3rem 0; }
-    .mv-card { background: white; padding: 2rem; border-radius: 24px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); text-align: center; }
-    .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; margin-top: 1rem; }
-    .team-card { background: white; border-radius: 24px; padding: 1.8rem; text-align: center; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); transition: transform 0.25s; }
-    .team-card:hover { transform: translateY(-6px); }
-    .team-img { width: 120px; height: 120px; background: #e0e7ff; border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: var(--accent); }
-    .stats-grid { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem; background: var(--primary-dark); color: white; padding: 3rem 2rem; border-radius: 32px; margin-top: 2rem; text-align: center; }
-    .stat h3 { font-size: 2.5rem; }
-    footer { background: var(--primary-dark); color: #cbd5e1; padding: 48px 0 24px; margin-top: 2rem; }
-    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
-    .social-icons a { color: #cbd5e1; margin-right: 1rem; font-size: 1.2rem; display: inline-block; }
-    .copyright { text-align: center; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #1e2a3a; }
-    @media (max-width: 768px) { .mission-vision { grid-template-columns: 1fr; } .stats-grid { flex-direction: column; align-items: center; } }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SW Technologies | About Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <nav class="navbar"><div class="nav-container"><div class="logo"><a href="index.html">SW<span style="color:#4f46e5;">Tech</span></a></div><div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div><ul class="nav-links" id="navLinks"><li><a href="index.html">Home</a></li><li><a href="about.html" class="active">About</a></li><li><a href="services.html">Services</a></li><li><a href="contact.html">Contact</a></li></ul></div></nav>
-  <main><div class="container"><section><h2>About SW Technologies</h2><div class="story-box"><p style="font-size:1.1rem;">Founded in 2022, SW Technologies started with a mission to help businesses break digital barriers. We are a team of passionate developers, designers, and strategists who craft high-performance web experiences. From startups to established brands, we've partnered with 30+ companies to elevate their online presence. Our approach combines modern tech stacks, user-centric design, and measurable outcomes.</p></div><div class="mission-vision"><div class="mv-card"><i class="fas fa-bullseye" style="font-size:2.5rem; color:#4f46e5;"></i><h3 style="margin:1rem 0;">Our Mission</h3><p>To deliver innovative, scalable web solutions that drive business growth and digital transformation.</p></div><div class="mv-card"><i class="fas fa-eye" style="font-size:2.5rem; color:#4f46e5;"></i><h3 style="margin:1rem 0;">Our Vision</h3><p>To become the most trusted web partner for businesses worldwide, setting new standards in quality and innovation.</p></div></div><h2>Meet Our Team</h2><div class="team-grid"><div class="team-card"><div class="team-img"><i class="fas fa-user-tie"></i></div><h3>Alex Morgan</h3><p style="color:var(--accent);">Founder & CEO</p><p>15+ years in web strategy and leadership.</p></div><div class="team-card"><div class="team-img"><i class="fas fa-laptop-code"></i></div><h3>Jessica Lee</h3><p style="color:var(--accent);">Lead Developer</p><p>Full-stack expert, React & Node specialist.</p></div><div class="team-card"><div class="team-img"><i class="fas fa-palette"></i></div><h3>David Kim</h3><p style="color:var(--accent);">Creative Director</p><p>Award-winning UI/UX designer.</p></div></div><div class="stats-grid"><div class="stat"><h3>50+</h3><p>Projects Delivered</p></div><div class="stat"><h3>30+</h3><p>Happy Clients</p></div><div class="stat"><h3>3+</h3><p>Years of Excellence</p></div></div></section></div></main>
-  <footer><div class="container"><div class="footer-grid"><div class="footer-col"><h4>SW Technologies</h4><p>Innovative web solutions.</p></div><div class="footer-col"><h4>Quick Links</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="contact.html">Contact</a></div><div class="footer-col"><h4>Contact</h4><a href="#"><i class="fas fa-phone"></i> +1 (555) 678-1234</a><a href="#"><i class="fas fa-envelope"></i> hello@swtechnologies.com</a></div><div class="footer-col"><div class="social-icons"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a></div></div></div><div class="copyright"><p>© 2025 SW Technologies. All rights reserved.</p></div></div></footer>
-  <script>const hamburger=document.getElementById('hamburger');const navLinks=document.getElementById('navLinks');hamburger.addEventListener('click',()=>{navLinks.classList.toggle('active');});document.querySelectorAll('.nav-links a').forEach(link=>{link.addEventListener('click',()=>{navLinks.classList.remove('active');})});</script>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo"><a href="index.html">SW<span style="color:#4f46e5;">Tech</span></a></div>
+            <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <section>
+                <div class="section-header">
+                    <h2>About SW Technologies</h2>
+                    <p>Our journey, values, and the people behind the code</p>
+                </div>
+                <div class="story-box">
+                    <p style="font-size:1.05rem; line-height:1.6;">Founded in 2022, SW Technologies started with a mission to help businesses break digital barriers. We are a team of passionate developers, designers, and strategists who craft high-performance web experiences. From startups to established brands, we've partnered with 30+ companies to elevate their online presence. Our approach combines modern tech stacks, user-centric design, and measurable outcomes.</p>
+                </div>
+                <div class="mission-vision">
+                    <div class="mv-card"><i class="fas fa-bullseye" style="font-size:2.5rem; color:#4f46e5;"></i><h3 style="margin:1rem 0;">Our Mission</h3><p>To deliver innovative, scalable web solutions that drive business growth and digital transformation.</p></div>
+                    <div class="mv-card"><i class="fas fa-eye" style="font-size:2.5rem; color:#4f46e5;"></i><h3 style="margin:1rem 0;">Our Vision</h3><p>To become the most trusted web partner for businesses worldwide, setting new standards in quality and innovation.</p></div>
+                </div>
+                <h2>Meet Our Team</h2>
+                <div class="team-grid">
+                    <div class="team-card"><div class="team-img"><i class="fas fa-user-tie"></i></div><h3>Alex Morgan</h3><p style="color:var(--accent);">Founder & CEO</p><p>15+ years in web strategy and leadership.</p></div>
+                    <div class="team-card"><div class="team-img"><i class="fas fa-laptop-code"></i></div><h3>Jessica Lee</h3><p style="color:var(--accent);">Lead Developer</p><p>Full-stack expert, React & Node specialist.</p></div>
+                    <div class="team-card"><div class="team-img"><i class="fas fa-palette"></i></div><h3>David Kim</h3><p style="color:var(--accent);">Creative Director</p><p>Award-winning UI/UX designer.</p></div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat"><h3>50+</h3><p>Projects Delivered</p></div>
+                    <div class="stat"><h3>30+</h3><p>Happy Clients</p></div>
+                    <div class="stat"><h3>3+</h3><p>Years of Excellence</p></div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col"><h4>SW Technologies</h4><p>Innovative web solutions.</p></div>
+                <div class="footer-col"><h4>Quick Links</h4><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="contact.html">Contact</a></div>
+                <div class="footer-col"><h4>Contact</h4><a href="#"><i class="fas fa-phone"></i> +1 (555) 678-1234</a><a href="#"><i class="fas fa-envelope"></i> hello@swtechnologies.com</a></div>
+                <div class="footer-col"><div class="social-icons"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a></div></div>
+            </div>
+            <div class="copyright"><p>© 2025 SW Technologies. All rights reserved.</p></div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
+        document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('active')));
+        
+        const backBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) backBtn.classList.add('show');
+            else backBtn.classList.remove('show');
+        });
+    </script>
 </body>
 </html>
