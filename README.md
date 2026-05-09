@@ -91,7 +91,7 @@ Shadows: Subtle elevation with hover depth effects
 
 Animations: Fade-in on hero, hover lift on cards
 
-Spacing: Consistent padding/margins (8rem sections on desktop, 4rem on mobile)
+Spacing: Consistent padding/margins (5rem sections on desktop, 3rem on mobile)
 
 🔧 Customization Guide
 Changing Colors
