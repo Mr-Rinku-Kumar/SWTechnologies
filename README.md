@@ -2,6 +2,14 @@
 
 A professional, fully responsive company website for SW Technologies, a web development company. Built with pure HTML, CSS, and JavaScript — no frameworks, no templates, no WordPress.
 
+## 🌐 Live Demo
+
+**Visit the live website:** [https://mr-rinku-kumar.github.io/SWTechnologies/](https://mr-rinku-kumar.github.io/SWTechnologies/)
+
+**GitHub Repository:** [https://github.com/Mr-Rinku-Kumar/SWTechnologies](https://github.com/Mr-Rinku-Kumar/SWTechnologies)
+
+---
+
 ## 📋 Project Overview
 
 This website showcases SW Technologies' services, team, and expertise. It includes four complete pages with a modern design, smooth animations, and mobile-first responsiveness.
@@ -137,4 +145,10 @@ Cross-browser: Chrome, Firefox, Safari, Edge
 
 Mobile: Tested on iOS Safari, Android Chrome
 
+📄 License
+This project is free to use for personal and commercial purposes.
+
 Built with ❤️ for the web. No frameworks, no shortcuts — just clean code.
+
+Live URL: https://mr-rinku-kumar.github.io/SWTechnologies/
+Repository: https://github.com/Mr-Rinku-Kumar/SWTechnologies
