@@ -1,157 +1,335 @@
-# SW Technologies - Company Website
+markdown
+# SW Technologies - Complete Full Stack Web Application
 
-A professional, fully responsive company website for SW Technologies, a web development company. Built with pure HTML, CSS, and JavaScript — no frameworks, no templates, no WordPress.
+A professional, fully responsive company website for SW Technologies with complete backend integration, user authentication, admin panel, and database management.
 
 ## 🌐 Live Demo
 
-**Visit the live website:** [https://mr-rinku-kumar.github.io/SWTechnologies/](https://mr-rinku-kumar.github.io/SWTechnologies/)
+| Component | URL |
+|-----------|-----|
+| **Frontend (Website)** | [https://mr-rinku-kumar.github.io/SWTechnologies/](https://mr-rinku-kumar.github.io/SWTechnologies/) |
+| **Backend API** | [https://swtechnologies-backend.onrender.com](https://swtechnologies-backend.onrender.com) |
 
-**GitHub Repository:** [https://github.com/Mr-Rinku-Kumar/SWTechnologies](https://github.com/Mr-Rinku-Kumar/SWTechnologies)
+## 📦 GitHub Repositories
+
+| Repository | Link |
+|------------|------|
+| **Frontend** (This repo) | [https://github.com/Mr-Rinku-Kumar/SWTechnologies](https://github.com/Mr-Rinku-Kumar/SWTechnologies) |
+| **Backend** | [https://github.com/Mr-Rinku-Kumar/SWTechnologies-Backend](https://github.com/Mr-Rinku-Kumar/SWTechnologies-Backend) |
 
 ---
 
 ## 📋 Project Overview
 
-This website showcases SW Technologies' services, team, and expertise. It includes four complete pages with a modern design, smooth animations, and mobile-first responsiveness.
+This is a complete full-stack web application for SW Technologies, a web development company.
 
-### Pages Included
+### Features
 
-| Page | File | Description |
-|------|------|-------------|
-| Home | `index.html` | Hero section, services overview, why choose us, client testimonials |
-| About | `about.html` | Company story, mission & vision, team members, stats |
-| Services | `services.html` | Detailed service cards with CTA buttons |
-| Contact | `contact.html` | Contact form with validation, company details, Google Maps |
+#### Frontend
+- ✅ Sticky navbar with hamburger menu for mobile
+- ✅ Fully responsive design (320px → 1280px+)
+- ✅ Modern UI with gradients, shadows, and animations
+- ✅ Back to Top button
+- ✅ Client-side form validation
+- ✅ Google Maps embed
+- ✅ Quote request modal with service pre-selection
+- ✅ Real-time user authentication state in navbar
 
-## 🎨 Features
+#### Backend
+- ✅ RESTful API with Express.js
+- ✅ MongoDB database with Mongoose
+- ✅ JWT authentication (7-day expiry)
+- ✅ Password hashing with bcryptjs
+- ✅ Server-side validation
+- ✅ Admin-only protected routes
+- ✅ Complete CRUD operations
 
-- ✅ **Sticky Navbar** with hamburger menu for mobile
-- ✅ **Fully Responsive** — works on 320px (mobile), 768px (tablet), 1280px+ (desktop)
-- ✅ **Modern UI** — gradients, shadows, hover effects, card animations
-- ✅ **Back to Top Button** — appears after scrolling
-- ✅ **Form Validation** — JavaScript validation for all contact form fields
-- ✅ **Google Maps Embed** — location iframe on contact page
-- ✅ **Consistent Design** — shared CSS across all pages
-- ✅ **Semantic HTML** & clean code structure
+#### Admin Panel
+- ✅ Modern dashboard with statistics
+- ✅ View all contact messages
+- ✅ View all registered users
+- ✅ View all newsletter subscribers
+- ✅ View all quote requests
+- ✅ Delete contact messages
+- ✅ Search functionality
+- ✅ Mobile responsive
+
+---
 
 ## 🛠️ Technologies Used
 
-- **HTML5** — semantic markup
-- **CSS3** — Flexbox, Grid, custom properties, animations
-- **JavaScript** — mobile menu toggle, form validation, back-to-top
-- **Google Fonts** — Inter font family
-- **Font Awesome 6** — icons (CDN)
+### Frontend
+| Technology | Purpose |
+|------------|---------|
+| HTML5 | Semantic markup |
+| CSS3 | Flexbox, Grid, animations |
+| JavaScript | DOM manipulation, API calls |
+| Google Fonts | Inter font family |
+| Font Awesome 6 | Icons |
 
-## 📁 File Structure
-project/
+### Backend
+| Technology | Purpose |
+|------------|---------|
+| Node.js | Runtime environment |
+| Express.js | Web framework |
+| MongoDB | Database |
+| Mongoose | ODM for MongoDB |
+| JWT | Authentication tokens |
+| bcryptjs | Password hashing |
+| express-validator | Input validation |
+| cors | Cross-origin resource sharing |
+| dotenv | Environment variables |
+
+---
+
+## 📁 Project Structure
+SWTechnologies/ # Frontend Repository
 ├── index.html # Homepage
 ├── about.html # About Us page
 ├── services.html # Services page
 ├── contact.html # Contact page
-├── styles.css # Shared stylesheet
+├── login.html # User login
+├── register.html # User registration
+├── admin.html # Admin dashboard
+├── styles.css # Global styles
+├── script.js # Frontend JavaScript
 └── README.md # Documentation
+
+SWTechnologies-Backend/ # Backend Repository (Separate)
+├── server.js # Express server
+├── package.json # Dependencies
+├── .env # Environment variables
+├── database.js # MongoDB connection & schemas
+├── seed.js # Admin user seeder
+├── middleware/
+│ └── auth.js # JWT authentication
+└── routes/
+├── auth.js # Login/Register routes
+├── contact.js # Contact form routes
+├── newsletter.js # Newsletter routes
+├── quote.js # Quote routes
+└── admin.js # Admin protected routes
 
 text
 
-## 🚀 How to Deploy on GitHub Pages
+---
 
-### Option 1: Direct Upload (Easiest)
+## 🗄️ Database Collections
 
-1. Create a new GitHub repository (e.g., `sw-tech-website`)
-2. Upload all 5 files (`index.html`, `about.html`, `services.html`, `contact.html`, `styles.css`)
-3. Go to **Settings → Pages**
-4. Under "Branch", select `main` and `/ (root)`
-5. Click **Save**
-6. Your site will be live at: `https://your-username.github.io/sw-tech-website/`
+| Collection | Fields |
+|------------|--------|
+| **Users** | id, name, email, password (hashed), role, createdAt |
+| **Contacts** | id, name, email, phone, subject, message, createdAt |
+| **Newsletter** | id, email, subscribedAt |
+| **Quotes** | id, name, email, phone, serviceRequired, budget, message, createdAt |
 
-### Option 2: Using Git Commands
+---
+
+## 🚀 API Endpoints
+
+### Authentication
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/auth/register` | Register new user |
+| POST | `/api/auth/login` | Login user |
+| GET | `/api/auth/profile` | Get user profile (protected) |
+
+### Contact
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/contact` | Submit contact form |
+
+### Newsletter
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/newsletter/subscribe` | Subscribe to newsletter |
+
+### Quote
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/quote` | Submit quote request |
+
+### Admin (Protected - Admin Only)
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/admin/contacts` | Get all contacts |
+| DELETE | `/api/admin/contacts/:id` | Delete contact |
+| GET | `/api/admin/users` | Get all users |
+| GET | `/api/admin/newsletter` | Get all subscribers |
+| GET | `/api/admin/quotes` | Get all quotes |
+
+---
+
+## 🔧 Local Development Setup
+
+### Prerequisites
+- Node.js (v14 or higher)
+- MongoDB (local or cloud)
+- Git
+
+### Step 1: Clone Repositories
 
 ```bash
-# Clone or initialize repo
-git init
-git add .
-git commit -m "Initial commit - SW Technologies website"
+# Clone frontend
+git clone https://github.com/Mr-Rinku-Kumar/SWTechnologies.git
+cd SWTechnologies
 
-# Add remote and push
-git remote add origin https://github.com/your-username/your-repo-name.git
-git push -u origin main
-Then enable GitHub Pages as described above.
+# Clone backend (in separate folder)
+cd ..
+git clone https://github.com/Mr-Rinku-Kumar/SWTechnologies-Backend.git
+cd SWTechnologies-Backend
+Step 2: Backend Setup
+bash
+# Install dependencies
+npm install
 
+# Create .env file
+cp .env.example .env
+# OR manually create:
+# PORT=5000
+# MONGODB_URI=mongodb://localhost:27017/swtechnologies
+# JWT_SECRET=your_super_secret_key_here
+# JWT_EXPIRE=7d
+# ADMIN_EMAIL=admin@swtechnologies.com
+# ADMIN_PASSWORD=Admin@123456
+
+# Seed admin user (first time only)
+npm run seed
+
+# Start backend server
+npm run dev
+Step 3: Frontend Setup
+bash
+# Go to frontend folder
+cd ../SWTechnologies
+
+# Update API_URL in script.js for local development
+# Change: const API_URL = 'https://swtechnologies-backend.onrender.com/api';
+# To: const API_URL = 'http://localhost:5000/api';
+
+# Serve frontend using Live Server
+npx live-server --port=5500
+Step 4: Access the Application
+Frontend: http://localhost:5500
+
+Backend API: http://localhost:5000
+
+Admin Panel: http://localhost:5500/admin.html
+
+🔐 Default Admin Credentials
+Field	Value
+Email	admin@swtechnologies.com
+Password	Admin@123456
 📱 Responsive Breakpoints
 Device	Width	Status
 Mobile	320px - 480px	✅ Optimized
 Tablet	768px - 1024px	✅ Optimized
 Desktop	1280px+	✅ Optimized
-🎯 Design Highlights
+🚀 Deployment Guide
+Frontend Deployment (GitHub Pages)
+Push frontend code to this repository
+
+Go to Repository → Settings → Pages
+
+Select branch main and folder / (root)
+
+Click Save
+
+Site will be live at: https://mr-rinku-kumar.github.io/SWTechnologies/
+
+Backend Deployment (Render)
+Push backend code to separate repository (SWTechnologies-Backend)
+
+Go to Render.com → New Web Service
+
+Connect your backend GitHub repository
+
+Configure:
+
+Build Command: npm install
+
+Start Command: node server.js
+
+Add environment variables
+
+Click Create Web Service
+
+Update API_URL in frontend script.js to your Render URL
+
+Database Deployment (MongoDB Atlas)
+Create free cluster on MongoDB Atlas
+
+Get connection string
+
+Add to backend environment variables
+
+🎨 Design Highlights
 Color Scheme: Deep navy (#0a1927) + Indigo accent (#4f46e5)
 
 Typography: Inter (sans-serif) from Google Fonts
 
-Shadows: Subtle elevation with hover depth effects
+Animations: Fade-in, hover lift, slide effects
 
-Animations: Fade-in on hero, hover lift on cards
+Shadows: Subtle elevation with depth on hover
 
-Spacing: Consistent padding/margins (5rem sections on desktop, 3rem on mobile)
+Spacing: Consistent padding/margins across all pages
 
-🔧 Customization Guide
-Changing Colors
-Edit CSS variables in styles.css:
+✅ Testing Checklist
+User registration works
 
-css
-:root {
-    --primary: #0a1927;      /* Dark background */
-    --accent: #4f46e5;       /* Primary button/icon color */
-    --accent-light: #6366f1; /* Hover state */
-}
-Updating Team Members
-Edit the team section in about.html:
+User login works
 
-html
-<div class="team-card">
-    <div class="team-img"><i class="fas fa-user"></i></div>
-    <h3>Name</h3>
-    <p>Role</p>
-    <p>Description</p>
-</div>
-Changing Contact Info
-Update in all pages (footer and contact page):
+JWT token stored in localStorage
 
-Address
+Username appears in navbar after login
 
-Phone number
+Logout clears token
 
-Email
+Contact form saves to database
 
-Google Maps iframe URL
+Newsletter subscription saves to database
 
-Modifying Services
-Edit service cards in index.html and services.html:
+Quote request saves to database
 
-html
-<div class="service-card">
-    <div class="service-icon"><i class="fas fa-icon-name"></i></div>
-    <h3>Service Title</h3>
-    <p>Service description text...</p>
-    <a href="contact.html" class="btn btn-outline btn-small">Learn More →</a>
-</div>
-✅ Validation & Testing
-HTML: All pages pass W3C validation
+Admin can view all data
 
-CSS: No errors, uses standard properties
+Admin can delete contacts
 
-JavaScript: Console error-free
+Admin panel shows statistics
 
-Cross-browser: Chrome, Firefox, Safari, Edge
+All forms have validation
 
-Mobile: Tested on iOS Safari, Android Chrome
+Responsive on all devices
+
+Cross-browser compatible
 
 📄 License
 This project is free to use for personal and commercial purposes.
 
 🙋 Support
-For questions or customization help, contact: hello@swtechnologies.com
+For questions or support, contact: hello@swtechnologies.com
 
-Built with ❤️ for the web. No frameworks, no shortcuts — just clean code.
+👨‍💻 Author
+SW Technologies - Web Development Company
 
-Live URL: https://mr-rinku-kumar.github.io/SWTechnologies/
-Repository: https://github.com/Mr-Rinku-Kumar/SWTechnologies
+Website: https://mr-rinku-kumar.github.io/SWTechnologies/
+
+GitHub: @Mr-Rinku-Kumar
+
+🙏 Acknowledgments
+Font Awesome for icons
+
+Google Fonts for Inter typeface
+
+MongoDB Atlas for cloud database
+
+Render for backend hosting
+
+GitHub Pages for frontend hosting
+
+📊 Project Status
+Component	Status	URL
+Frontend	✅ Live	GitHub Pages
+Backend	✅ Live	Render
+Database	✅ Live	MongoDB Atlas
+Built with ❤️ for the web. Full-stack application with modern technologies.
