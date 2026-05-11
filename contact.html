@@ -1,4 +1,4 @@
-<!-- contact.html - Enhanced with Backend API Integration -->
+<!-- contact.html - Clean version (no duplicate script) -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +17,6 @@
             gap: 0.5rem;
             margin-top: 0.5rem;
         }
-
         .newsletter-form input {
             padding: 0.7rem;
             border-radius: 0.5rem;
@@ -25,11 +24,7 @@
             background: rgba(255, 255, 255, 0.1);
             color: white;
         }
-
-        .newsletter-form input::placeholder {
-            color: #94a3b8;
-        }
-
+        .newsletter-form input::placeholder { color: #94a3b8; }
         .newsletter-form button {
             padding: 0.7rem;
             background: #4f46e5;
@@ -39,37 +34,11 @@
             cursor: pointer;
             transition: background 0.2s;
         }
-
-        .newsletter-form button:hover {
-            background: #6366f1;
-        }
-
-        .footer-col {
-            margin-bottom: 1rem;
-        }
-
-        .success-message {
-            background: #10b981;
-            color: white;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            margin-top: 1rem;
-            text-align: center;
-        }
-
-        .error-message {
-            background: #ef4444;
-            color: white;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            margin-top: 1rem;
-            text-align: center;
-        }
-
-        .loading {
-            opacity: 0.7;
-            pointer-events: none;
-        }
+        .newsletter-form button:hover { background: #6366f1; }
+        .footer-col { margin-bottom: 1rem; }
+        .success-message { background: #10b981; color: white; padding: 1rem; border-radius: 0.5rem; margin-top: 1rem; text-align: center; }
+        .error-message { background: #ef4444; color: white; padding: 1rem; border-radius: 0.5rem; margin-top: 1rem; text-align: center; }
+        .loading { opacity: 0.7; pointer-events: none; }
     </style>
 </head>
 
@@ -82,10 +51,9 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
                 <li><a href="login.html"><i class="fas fa-user"></i> Login</a></li>
                 <li><a href="register.html"><i class="fas fa-user-plus"></i> Register</a></li>
-                <!-- Admin link will be added here dynamically by JavaScript -->
             </ul>
         </div>
     </nav>
@@ -119,8 +87,7 @@
                             <textarea rows="5" id="message" placeholder="Your Message..."></textarea>
                             <span class="error" id="messageError"></span>
                         </div>
-                        <button type="submit" class="btn btn-primary" id="submitBtn"
-                            style="width:100%; justify-content:center;">
+                        <button type="submit" class="btn btn-primary" id="submitBtn" style="width:100%; justify-content:center;">
                             Send Message <i class="fas fa-paper-plane"></i>
                         </button>
                         <div id="formMessage" style="display:none;"></div>
@@ -188,134 +155,22 @@
 
     <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
 
+    <!-- Only one script - no duplicate! -->
+    <script src="script.js"></script>
     <script>
-        // Navbar functionality
+        // Navbar functionality (keeping this minimal as script.js handles the rest)
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
-        hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
-        document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('active')));
-
-        // Back to top
+        if (hamburger) {
+            hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
+            document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('active')));
+        }
         const backBtn = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 300) backBtn.classList.add('show');
             else backBtn.classList.remove('show');
         });
-
-        // Contact Form Submission with Backend API
-        const contactForm = document.getElementById('contactForm');
-        const submitBtn = document.getElementById('submitBtn');
-        const formMessage = document.getElementById('formMessage');
-
-        // API URL - change this when deploying
-        const API_URL = 'https://swtechnologies-backend.onrender.com/api';
-
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-
-            // Clear previous errors
-            document.querySelectorAll('.error').forEach(el => el.innerText = '');
-            formMessage.style.display = 'none';
-
-            // Get form values
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const subject = document.getElementById('subject').value.trim();
-            const message = document.getElementById('message').value.trim();
-
-            // Validation
-            let isValid = true;
-
-            if (!name) {
-                document.getElementById('nameError').innerText = 'Name is required';
-                isValid = false;
-            }
-
-            const emailPattern = /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/;
-            if (!email) {
-                document.getElementById('emailError').innerText = 'Email is required';
-                isValid = false;
-            } else if (!emailPattern.test(email)) {
-                document.getElementById('emailError').innerText = 'Please enter a valid email';
-                isValid = false;
-            }
-
-            const phonePattern = /^[\d+\s\-\(\)]{10,}$/;
-            if (!phone) {
-                document.getElementById('phoneError').innerText = 'Phone number is required';
-                isValid = false;
-            } else if (!phonePattern.test(phone)) {
-                document.getElementById('phoneError').innerText = 'Please enter a valid phone number';
-                isValid = false;
-            }
-
-            if (!subject) {
-                document.getElementById('subjectError').innerText = 'Subject is required';
-                isValid = false;
-            }
-
-            if (!message) {
-                document.getElementById('messageError').innerText = 'Message is required';
-                isValid = false;
-            }
-
-            if (!isValid) return;
-
-            // Show loading state
-            submitBtn.classList.add('loading');
-            submitBtn.innerHTML = 'Sending... <i class="fas fa-spinner fa-pulse"></i>';
-
-            try {
-                const response = await fetch(`${API_URL}/contact`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ name, email, phone, subject, message })
-                });
-
-                const data = await response.json();
-
-                if (response.ok) {
-                    // Success
-                    formMessage.className = 'success-message';
-                    formMessage.innerHTML = '✓ ' + (data.message || 'Message sent successfully! We\'ll get back to you soon.');
-                    formMessage.style.display = 'block';
-                    contactForm.reset();
-
-                    // Auto hide after 5 seconds
-                    setTimeout(() => {
-                        formMessage.style.display = 'none';
-                    }, 5000);
-                } else {
-                    // Error from server
-                    formMessage.className = 'error-message';
-                    formMessage.innerHTML = '✗ ' + (data.message || 'Something went wrong. Please try again.');
-                    formMessage.style.display = 'block';
-
-                    if (data.errors) {
-                        data.errors.forEach(err => {
-                            const field = err.param;
-                            if (field && document.getElementById(`${field}Error`)) {
-                                document.getElementById(`${field}Error`).innerText = err.msg;
-                            }
-                        });
-                    }
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                formMessage.className = 'error-message';
-                formMessage.innerHTML = '✗ Network error. Please make sure the backend server is running.';
-                formMessage.style.display = 'block';
-            } finally {
-                // Reset button
-                submitBtn.classList.remove('loading');
-                submitBtn.innerHTML = 'Send Message <i class="fas fa-paper-plane"></i>';
-            }
-        });
     </script>
-    <script src="script.js"></script>
 </body>
 
 </html>
