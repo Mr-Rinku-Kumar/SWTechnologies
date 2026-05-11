@@ -1,4 +1,4 @@
-<!-- services.html -->
+<!-- services.html - Enhanced with Newsletter and Backend Integration -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,6 +26,48 @@
         .service-detailed-card {
             margin-bottom: 2rem;
         }
+
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .newsletter-form input {
+            padding: 0.7rem;
+            border-radius: 0.5rem;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .newsletter-form input::placeholder {
+            color: #94a3b8;
+        }
+
+        .newsletter-form button {
+            padding: 0.7rem;
+            background: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .newsletter-form button:hover {
+            background: #6366f1;
+        }
+
+        .footer-col {
+            margin-bottom: 1rem;
+        }
+
+        .service-card .btn-primary {
+            margin-top: 1rem;
+            display: inline-block;
+        }
     </style>
 </head>
 
@@ -37,8 +79,11 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="services.html">Services</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html"><i class="fas fa-user"></i> Login</a></li>
+                <li><a href="register.html"><i class="fas fa-user-plus"></i> Register</a></li>
+                <!-- Admin link will be added here dynamically by JavaScript -->
             </ul>
         </div>
     </nav>
@@ -57,27 +102,33 @@
                     <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
                     <h3>Website Design</h3>
                     <p>Custom designs that reflect your brand identity and captivate users. Pixel-perfect, modern
-                        interfaces with focus on conversion.</p><a href="contact.html"
-                        class="btn btn-primary btn-small">Request a Quote →</a>
+                        interfaces with focus on conversion.</p>
+                    <button onclick="openQuoteModalWithService('Website Design')"
+                        class="btn btn-primary btn-small">Request a Quote →</button>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-code"></i></div>
                     <h3>Website Development</h3>
                     <p>High-performance frontend & backend development. Scalable, secure, and maintainable code with
-                        latest technologies.</p><a href="contact.html" class="btn btn-primary btn-small">Request a Quote
-                        →</a>
+                        latest technologies.</p>
+                    <button onclick="openQuoteModalWithService('Website Development')"
+                        class="btn btn-primary btn-small">Request a Quote →</button>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-store"></i></div>
                     <h3>E-Commerce Development</h3>
                     <p>Full-featured online stores with secure payment gateways, inventory management, and detailed
-                        analytics.</p><a href="contact.html" class="btn btn-primary btn-small">Request a Quote →</a>
+                        analytics.</p>
+                    <button onclick="openQuoteModalWithService('E-Commerce Development')"
+                        class="btn btn-primary btn-small">Request a Quote →</button>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-chart-simple"></i></div>
                     <h3>SEO & Digital Marketing</h3>
                     <p>Data-driven SEO strategies, content marketing, and paid ads to boost your visibility and organic
-                        traffic.</p><a href="contact.html" class="btn btn-primary btn-small">Request a Quote →</a>
+                        traffic.</p>
+                    <button onclick="openQuoteModalWithService('SEO & Digital Marketing')"
+                        class="btn btn-primary btn-small">Request a Quote →</button>
                 </div>
             </div>
         </div>
@@ -91,24 +142,53 @@
                     <p>Your digital growth partner.</p>
                 </div>
                 <div class="footer-col">
-                    <h4>Explore</h4><a href="index.html">Home</a><a href="about.html">About</a><a
-                        href="services.html">Services</a><a href="contact.html">Contact</a>
+                    <h4>Explore</h4>
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="services.html">Services</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="login.html">Login</a>
+                    <a href="register.html">Register</a>
                 </div>
-                <div class="footer-col"><i class="fas fa-map-marker-alt"></i> 123 Innovation Hub, CA<br><i
-                        class="fas fa-envelope"></i> hello@swtechnologies.com</div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <a href="#"><i class="fas fa-map-marker-alt"></i> 123 Innovation Hub, CA</a>
+                    <a href="#"><i class="fas fa-phone"></i> +1 (555) 678-1234</a>
+                    <a href="#"><i class="fas fa-envelope"></i> hello@swtechnologies.com</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" id="newsletterEmail" placeholder="Your email address" required>
+                        <button type="submit">Subscribe →</button>
+                    </form>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
             </div>
-            <div class="copyright">© 2025 SW Technologies. All rights reserved.</div>
+            <div class="copyright">
+                <p>© 2025 SW Technologies. All rights reserved. Crafted with ❤️ for the web.</p>
+            </div>
         </div>
     </footer>
 
     <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
 
     <script>
+        // Navbar functionality
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
         hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
         document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('active')));
 
+        // Back to top
         const backBtn = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 300) backBtn.classList.add('show');
@@ -116,8 +196,7 @@
         });
 
         // Scroll Reveal Animation
-        const revealElements = document.querySelectorAll('.service-card, .strength-card, .testimonial, .team-card, .mv-card, .stat');
-
+        const revealElements = document.querySelectorAll('.service-card');
         const revealOnScroll = () => {
             revealElements.forEach(el => {
                 const rect = el.getBoundingClientRect();
@@ -128,17 +207,23 @@
                 }
             });
         };
-
-        // Set initial state
         revealElements.forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
         });
-
         window.addEventListener('scroll', revealOnScroll);
         window.addEventListener('load', revealOnScroll);
+
+        // Function to open quote modal with pre-selected service
+        function openQuoteModalWithService(service) {
+            // Store service in localStorage to be used by modal
+            localStorage.setItem('preSelectedService', service);
+            // Redirect to homepage which has the modal, or open modal if exists
+            window.location.href = 'index.html';
+        }
     </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
